@@ -1,0 +1,50 @@
+﻿@model PracticalUpImageWebApp.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4" >
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductsName" class="control-label"></label>
+                <input asp-for="ProductsName" class="form-control" />
+                <span asp-validation-for="ProductsName" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="ProductsModel" class="control-label"></label>
+                    <input asp-for="ProductsModel" class="form-control" />
+                    <span asp-validation-for="ProductsModel" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ProductsPrice" class="control-label"></label>
+                    <input asp-for="ProductsPrice" class="form-control" />
+                    <span asp-validation-for="ProductsPrice" class="text-danger"></span>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <input asp-for="ImageFile" class="form-control" accept="images/*" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
